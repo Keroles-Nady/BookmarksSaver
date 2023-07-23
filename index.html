@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- Attach fontawesome to the project -->
+    <!-- Online method using CDNJS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <!-- Attach bootstrap to the project -->
+    <!-- Online method using CDNJS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css"
+      integrity="sha512-t4GWSVZO1eC8BM339Xd7Uphw5s17a86tIZIj8qRxhnKub6WoyhnrxeCIMeAqBPgdZGlCcG2PrZjMc+Wr78+5Xg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <title>Bookmark Project</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="header-title text-center my-5">Bookmarker</h1>
+      
+      <!-- Input fields -->
+      <div class="row w-75 mx-auto mb-5">
+        
+        <div class="form-group my-3">
+          <label for="siteName">
+            <i class="fa-solid fa-book-bookmark"></i>
+            Site Name</label
+          >
+          <input
+            type="text"
+            name="siteName"
+            id="siteName"
+            class="form-control" placeholder="Bookmark Name" oninput="validateBookmarkName()"
+          />
+          <small id="errorMessage" class="text-danger my-2 d-none">Bookmark name must at least 3 characters and starts with Capital letter</small>
+        </div>
+
+        <div class="form-group my-3">
+          <label for="siteURL">
+            <i class="fa-solid fa-link"></i>
+            Site URL</label
+          >
+          <input
+            type="url"
+            name="siteURL"
+            id="siteURL"
+            class="form-control"
+            placeholder="Website URL"
+            oninput="validateBookmarkURL()"
+          />
+          <small id="errorMessageURL" class="text-danger my-2 d-none">
+            <ul>
+              <li>The URL must start with either http or https and followed by ://</li>
+              <li>The URL must contain www.</li>
+              <li>The subdomain must be of length (2, 256)</li>
+              <li>The last part must co4ntains top level domain like .com, .org etc.</li>
+            </ul>
+          </small>
+        </div>
+
+        <div class="buttons d-flex justify-content-between align-items-center">
+          <button
+            class="btn btn-danger  px-5 mx-auto fit-content"
+            onclick="addBookmark()"
+          >
+            Submit
+          </button>
+
+          <button
+            id="update"
+            class="btn btn-info px-5 mx-auto fit-content d-none"
+          >
+            Update
+          </button>
+
+          <small id="alertMessage" class="text-danger my-2 d-none">This bookmark is already exist</small>
+        </div>
+        
+      </div>
+
+      <!-- Bookmarks Table -->
+      <div class="row w-75 mx-auto shadow rounded-3 p-3">
+        <table class="table text-center">
+          <thead>
+            <th>Index</th>
+            <th>Website Name</th>
+            <th>Visit</th>
+            <th>Delete</th>
+            <th>Update</th>
+          </thead>
+          <tbody id="BookmarksData"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Attach bootstrap helpers (Popper & JQuery) to the project -->
+    <!-- Using CDNJS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"
+      integrity="sha512-VK2zcvntEufaimc+efOYi622VN5ZacdnufnmX7zIhCPmjhKnOi9ZDMtg1/ug5l183f19gG1/cBstPO4D8N/Img=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+
+    <script src="./JS/index.js"></script>
+  </body>
+</html>
